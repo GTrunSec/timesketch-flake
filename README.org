@@ -1,0 +1,13 @@
+#+TITLE: README
+* Create User :ATTACH:
+- example
+#+begin_src sh :async t :exports both :results output
+./result/bin/tsctl -c ~/src/timesketch-flake/timesketch.conf add_user --username gtrun --password test@321
+#+end_src
+
+- run server in development mode.
+  #+begin_src sh :async t :exports both :results output
+./result/bin/tsctl -c ~/src/timesketch-flake/timesketch.conf runserver
+  #+end_src
+
+[[file:img/Screenshot_20201114_200047.png]]
