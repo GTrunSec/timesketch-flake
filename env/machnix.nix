@@ -8,7 +8,7 @@ let
     # Hash obtained using `nix-prefetch-url --unpack <url>`
     sha256 = "0nyil3npbqhwgqmxp65s3zn0hgisx14sjyv70ibbbdimfzwvy5qv";
   };
-  pypiFetcher = import pypi_fetcher_src {inherit pkgs;};
+  pypiFetcher = import pypi_fetcher_src { inherit pkgs; };
   fetchPypi = pypiFetcher.fetchPypi;
   fetchPypiWheel = pypiFetcher.fetchPypiWheel;
   is_py_module = pkg:
@@ -108,6 +108,7 @@ let
     ps."numpy"
     ps."oauthlib"
     ps."pandas"
+    ps."psycopg2-binary"
     ps."pyjwt"
     ps."python-dateutil"
     ps."pyyaml"
@@ -535,6 +536,17 @@ let
       dontStrip = true;
       passthru = (get_passthru "prompt-toolkit" "prompt_toolkit") // { provider = "wheel"; };
       propagatedBuildInputs = with python-self; [ wcwidth ];
+    };
+    "psycopg2-binary" = python-self.buildPythonPackage {
+      pname = "psycopg2-binary";
+      version = "2.8.6";
+      src = fetchPypiWheel "psycopg2-binary" "2.8.6" "psycopg2_binary-2.8.6-cp37-cp37m-manylinux1_x86_64.whl";
+      format = "wheel";
+      dontStrip = true;
+      passthru = (get_passthru "psycopg2-binary" "psycopg2-binary") // { provider = "wheel"; };
+      nativeBuildInputs = [ autoPatchelfHook ];
+      autoPatchelfIgnoreMissingDeps = true;
+      propagatedBuildInputs = with python-self; manylinux1 ++ [  ];
     };
     "pyasn1" = python-self.buildPythonPackage {
       pname = "pyasn1";

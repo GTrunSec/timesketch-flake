@@ -15,13 +15,13 @@
       let
         timesketch_dep = import ./env/python.nix {inherit pkgs;};
       in
-        python3Packages.buildPythonPackage rec {
+        python37Packages.buildPythonPackage rec {
           pname = "timesketch";
           version = "pre${builtins.substring 0 8 (self.lastModifiedDate or self.lastModified)}_${self.shortRev or "dirty"}";
           src = timesketch_src;
           doCheck = false;
           propagatedBuildInputs = with python3Packages; [ timesketch_dep ];
+          makeWrapperArgs = [ "--prefix PYTHONPATH : $PYTHONPATH" ];
         };
   };
-
 }
