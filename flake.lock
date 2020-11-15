@@ -1,0 +1,43 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1597710717,
+        "narHash": "sha256-3vAocE54PK1uU/HwZWL1rs4vRoNhPnRZNB4TTx6D1Zw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "8bdebd463bc77c9b83d66e690cba822a51c34b9b",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "rev": "8bdebd463bc77c9b83d66e690cba822a51c34b9b",
+        "type": "indirect"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "timesketch_src": "timesketch_src"
+      }
+    },
+    "timesketch_src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1605299265,
+        "narHash": "sha256-Kicff+TdP2M3gNaVw5n53+91LVX6uUzlnk5MLe5C0fI=",
+        "owner": "google",
+        "repo": "timesketch",
+        "rev": "65d984ef0311131fb18ee924ae2135f4dab3c37a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "google",
+        "repo": "timesketch",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
